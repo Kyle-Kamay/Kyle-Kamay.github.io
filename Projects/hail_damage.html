@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html> 
+
+
+<head>
+    <link rel="stylesheet" href="../style.css">
+    <title>Hail Damage Simulator</title>
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+
+            <a href="../index.html" class="nav-logo">
+            Kyle Kamay
+            </a>
+
+            <div class="nav-links">
+                <a href="../index.html#about">About</a>
+                <a href="../index.html#projects">Projects</a>
+                <a href="../index.html#experience">Experience</a>
+                <a href="../index.html#resume">Resume</a>
+                <a href="../index.html#contact">Contact</a>
+            </div>
+        </div>
+    </nav>
+    <a href="../index.html">Back to Home</a>
+    
+    <div class="project-page">
+        <section class="project-hero">
+
+    <p class="hero-label">PYTHON • MONTE CARLO SIMULATION • DATA ANALYSIS</p>
+
+    <h1>Hail Damage Simulator</h1>
+
+    <p class="project-subtitle">
+        A Python-based Monte Carlo simulation that models hail damage
+        across different roofing materials based on material properties
+        and simulated storm conditions.
+    </p>
+
+    <div class="project-links">
+
+        <a
+            href="https://github.com/Kyle-Kamay/Tech-Park-Project.git"
+            target="_blank"
+            class="button primary-button"
+        >
+            View on GitHub
+        </a>
+
+        <a
+            href="YOUR-PROGRAM-LINK"
+            target="_blank"
+            class="button secondary-button"
+        >
+            Try the Program →
+        </a>
+
+    </div>
+
+</section>
+
+        <div class="project-main-image">
+
+        <img
+        src="../images/Damage-Probability_vs_Hail-SizeSAMPLE.png"
+        alt="Hail Damage Simulator"
+        >
+
+        </div>
+        
+        <section class="project-section">
+
+    <h2>Project Overview</h2>
+    <p>
+        Hail Damage Simulator is a Python-based engineering simulation tool designed to estimate the probability and severity of hail damage across different materials. The program combines hail impact physics, material properties, environmental conditions, inspection characteristics, and Monte Carlo simulation to model potential damage outcomes. It supports both manual assessment and a prototype image-analysis workflow, and can simulate 1,000 randomized storms to analyze damage probability and compare material performance.
+    </p>
+
+
+    
+
+</section>
+
+
+<section class="project-section">
+
+    <h2>The Problem</h2>
+
+    <p>
+        Hail damage assessment can depend on numerous interacting variables, including hail size, impact energy, material properties, roof age, roof slope, temperature, and observed damage characteristics.  Evaluating thse factors individually makes it difficult to consistently estimate damage risk or compare how different materials respond to the same storm conditions.
+    </p>
+    
+
+</section>
+
+
+<section class="project-section">
+
+    <h2>Motivation</h2>
+
+    <p>
+        I developed this project to explore how engineering principles and computational modeling could be applied to a real-world problem involving weather-related property damage.  I wanted to combine physics, probability, material behavior, and programming into one system rather than relying on a single deterministi calculation.  The project also provided an opportunity to explore how future computer-vision techniques could be incorporated into automated damage assessment.
+    </p>
+    
+
+</section>
+
+
+<section class="project-section">
+
+    <h2>My Role</h2>
+
+    <p>
+        I designed and developed the simulator independently, including the program architecture, physics calculations, material database, damage-probability model, Monte Carlo simulation, data export, reporting, and visualization components.  I also designed the prototype image-analysis interface and integrated its output into the damage-assessment pipeline.
+    </p>
+    
+
+</section>
+
+
+<section class="project-section">
+
+    <h2>System Architecture</h2>
+
+    <p>
+        The simulator was structured as a modular Python application, with seperate components responsible for physics calculations. material properties, probability modeling, simulation, visualization, reporting, data export, and image analysis.  Inputs are processed through the physics and material models before being combined into a damage-probability estimate. The Monte Carlo module then generates randomized storm conditions to evaluate the model across a larger range of scenarios.
+    </p>
+    <div class="architecture-image">
+
+        <img
+            src="../images/flowchart-hail_simulator.png"
+            alt="Workflow showing the hail damage simulation process"
+        >
+
+    </div>
+
+</section>
+
+
+<section class="project-section">
+
+    <h2>Software</h2>
+
+    <p>
+        Python was used as the primary development language. The project uses modular Python files to separate the physics model, probability calculations, material database, Monte Carlo simulation, reporting, visualization, image processing, and CSV data export. Key libraries include NumPy/Matplotlib-style scientific visualization tools, Python's built-in mathematics, statistics, random, and CSV modules, and Pillow for image handling.
+    </p>
+   
+    <div class="project-code">
+
+        <pre><code>
+# Example structure of the simulation
+
+def calculate_hail_physics(hail_diameter_inches):
+    radius_m = (hail_diameter_inches * 0.0254) / 2
+
+    hail_mass = (4/3) * math.pi * (radius_m ** 3) * 917
+
+    velocity_ms = math.sqrt(
+        (2 * hail_mass * 9.8) /
+        (1.225 * math.pi * (radius_m ** 2) * 0.44704)
+    )
+
+    impact_energy = 0.5 * hail_mass * velocity_ms ** 2
+
+    return {
+        "mass": hail_mass,
+        "velocity": velocity_ms,
+        "energy": impact_energy
+    }
+    </div>
+
+
+</section>
+
+
+<section class="project-section">
+
+    <h2>Testing</h2>
+
+    <p>
+        The simulator was tested using randomized Monte Carlo simulations to evaluate its behavior across a wide range of storm conditions. Each simulation randomly varies hail size, material age, roof slope, temperature, number of impacts, dent characteristics, and damage distribution. The program performs 1,000 simulated storms for a selected material and calculates damage events, average damage probability, standard deviation, and a 95% confidence interval.
+    </p>
+    
+
+    </section>
+<section class="project-section">
+
+    <h2>Results</h2>
+
+    <p>
+        The simulation produces both individual damage assessments and statistical results across large numbers of randomized storms. The model demonstrates how increasing hail size and impact energy influence predicted damage probability, while material properties and environmental conditions modify the resulting risk. The simulator also allows materials to be compared using repeated Monte Carlo simulations, providing a way to rank materials according to their simulated damage probability.
+    </p>
+
+    <div class="results-image">
+
+        <img
+            src="../images/material-rankings.png"
+            alt="Graph showing simulated hail damage results"
+        >
+
+    </div>
+
+    <p>
+        These results provided a way to compare the relative performance
+        of different materials under the same simulated storm
+        conditions.
+    </p>
+
+</section>
+
+
+    <section class="project-section">
+
+    <h2>Challenges</h2>
+
+    <p>
+        One of the main challenges was developing a probability model that could incorporate both physical impact characteristics and less deterministic factors such as material age, temperature, roof slope, and observed damage characteristics. Another challenge was structuring the program so that the individual components could be modified independently as the model evolved. I addressed this by separating the project into modular Python files for physics, probability, simulation, visualization, reporting, and material data.
+    </p>
+    
+
+    </section>
+
+
+    <section class="project-section">
+
+    <h2>What I Learned</h2>
+
+    <p>
+        This project strengthened my understanding of how engineering models can be translated into software. I learned how to combine physics-based calculations with probabilistic modeling and Monte Carlo simulation, while also gaining experience with modular program architecture, statistical analysis, data visualization, and automated data export. I also learned the importance of clearly distinguishing between a prototype model and a validated real-world prediction system.
+    </p>
+    
+
+    </section>
+
+
+    <section class="project-section">
+
+    <h2>Future Improvements</h2>
+
+    <p>
+        Future development would focus on improving the physical and statistical validity of the model and expanding the image-analysis capability. The current image-analysis module is a prototype interface, so a future version could use a trained computer-vision model to automatically identify hail size, dent geometry, material type, and damage distribution from real inspection photographs. Additional improvements could include calibration against real insurance or field-inspection datasets, more detailed impact physics, uncertainty analysis, and a graphical user interface for easier use by inspectors or engineers.
+    </p>
+
+    </section>
+<section class="project-takeaway">
+
+    <h2>Project Takeaway</h2>
+
+    <p>
+        This project gave me experience turning a real-world engineering
+        problem into a computational model and using simulation results
+        to investigate system behavior. It also reinforced the
+        importance of validating assumptions when using computational
+        models to represent physical systems.
+    </p>
+
+</section>
+
+    </div>
+
+
+
+
+</body>

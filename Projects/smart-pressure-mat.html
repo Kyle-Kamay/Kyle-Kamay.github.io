@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html> 
+<head>
+    <link rel="stylesheet" href="../style.css">
+    <title>Smart Pressure Mat</title>
+</head>
+
+<body>
+    <a href="../index.html">Back to Home</a>
+        <section class="project-hero">
+
+        <p class="hero-label">
+        EMBEDDED SYSTEMS • SENSORS • HEALTHCARE TECHNOLOGY
+        </p>
+
+        <h1>Smart Pressure Mat & Pressure Sensing System</h1>
+
+        <p class="project-subtitle">
+        A pressure-sensing system developed to measure and visualize
+        pressure distribution, with applications in patient monitoring
+        and pressure-ulcer prevention.
+        </p>
+
+        <div class="project-links">
+
+            
+
+            
+
+        </div>
+
+    </section>
+    <div class="project-main-image">
+
+    <img
+        src="../images/basic-sensor-integration.png"
+        alt="2x2 grid of force-sensitive resistors connected to a microcontroller"
+    >
+
+</div>
+    
+    <section class="project-section">
+
+    <h2>Project Overview</h2>
+
+    <p>
+        The Smart Pressure Mat is an embedded sensing system designed
+        to measure pressure distribution across a surface and translate
+        the sensor measurements into a visual representation of pressure.
+        The project explores how low-cost pressure sensors and
+        microcontrollers can be combined to create a system for
+        monitoring pressure distribution.
+    </p>
+
+    <p>
+        The project began as a pressure sensor data logger and was
+        progressively expanded into a 2×2 sensor grid. This development
+        established the foundation for a larger pressure-sensing mat
+        intended for healthcare applications, including monitoring
+        patient pressure distribution and supporting pressure-ulcer
+        prevention strategies.  Inspiration for this project came from being a fellow of the UConn NurseEng Fellowship
+    </p>
+
+    </section>
+    
+    <section class="project-section">
+
+    <h2>The Problem</h2>
+
+    <p>
+        Prolonged pressure on the same areas of the body can contribute
+        to the development of pressure ulcers, particularly for patients
+        with limited mobility. Monitoring pressure distribution can help
+        caregivers identify areas experiencing elevated or sustained
+        pressure.
+    </p>
+
+    <p>
+        Existing pressure-monitoring systems can be expensive or
+        difficult to adapt to specific applications. This project
+        explored the development of a lower-cost sensing system capable
+        of measuring pressure at multiple locations and representing
+        the measurements in an intuitive way.
+    </p>
+
+    </section>
+
+
+    <section class="project-section">
+
+    <h2>Motivation</h2>
+
+    <p>
+        I was interested in developing a project that combined
+        electrical engineering, embedded systems, and healthcare
+        technology to address a real-world problem.
+    </p>
+
+    <p>
+        The project also provided an opportunity to learn how individual
+        sensors can be integrated into a larger sensing system and how
+        raw sensor measurements can be processed into information that
+        is easier for a user to interpret.
+    </p>
+
+    </section>
+    
+    <section class="project-section">
+
+    <h2>My Role</h2>
+
+    <p>
+        I contributed to the design and development of the pressure
+        sensing system, including sensor integration, microcontroller
+        programming, data collection, and development of the pressure
+        visualization.
+    </p>
+
+    <p>
+        I worked with force-sensitive resistor (FSR) sensors and an Arduino Uno microcontroller to collect pressure
+        measurements. I also helped develop the system from an
+        individual sensor into a 2×2 sensing grid.
+    </p>
+
+    </section>
+    
+    <section class="project-section">
+
+    <h2>System Architecture</h2>
+
+    <p>
+        The system uses force-sensitive resistors to measure pressure at
+        individual locations. The sensor signals are read by a
+        microcontroller and processed into pressure measurements that
+        can be represented spatially.
+    </p>
+
+    <div class="architecture-image">
+
+        <img
+            src="../images/pressure-mat-architecture.png"
+            alt="System architecture showing pressure sensors connected to a microcontroller and pressure visualization"
+        >
+
+    </div>
+
+    </section>
+
+    <section class="project-section">
+
+    <h2>Hardware</h2>
+
+    <p>
+        The prototype uses force-sensitive resistor (FSR) sensors to
+        detect changes in applied pressure. The sensors are connected
+        to an Arduino microcontroller, which serves as the
+        primary processing unit for collecting the sensor measurements.
+    </p>
+
+    <p>
+        The initial prototype used a 2×2 sensor arrangement,
+        creating four sensing locations that could be monitored
+        simultaneously, but future iterations include introducing a multiplexer and switching to an ESP32 FireBeetle microcontroller.
+    </p>
+
+    <div class="hardware-image">
+
+        <img
+            src="../images/basic-sensor-integration.png"
+            alt="2x2 pressure sensor grid connected on a breadboard"
+        >
+
+    </div>
+
+    </section>
+    
+    <section class="project-section">
+
+    <h2>Software & Data Collection</h2>
+
+    <p>
+        The system was programmed using Arduino-compatible C/C++ to
+        collect measurements from the pressure sensors. The
+        microcontroller continuously reads the sensor values and
+        associates each measurement with its corresponding location
+        in the sensor grid.
+    </p>
+
+    <p>
+        The collected measurements can then be processed to represent
+        the relative pressure at each sensing location. This provides
+        the foundation for generating a pressure heat map, allowing
+        pressure distribution to be interpreted spatially rather than
+        as a collection of individual numerical readings.
+    </p>
+
+    <div class="code-image">
+
+        <img
+            src="../images/fsr-readings.png"
+            alt="Arduino code used to collect pressure sensor measurements"
+        >
+
+    </div>
+
+    </section>
+    
+    <section class="project-section">
+
+    <h2>Prototype Development</h2>
+
+    <p>
+        The system was developed incrementally rather than attempting
+        to build the complete sensing mat immediately. Initial
+        development focused on reading and understanding the output
+        of an individual FSR sensor.
+    </p>
+
+    <p>
+        After establishing reliable sensor measurements, the system was
+        expanded into a 2×2 grid. This allowed pressure to be measured
+        at multiple locations simultaneously and introduced the
+        additional engineering challenges associated with multiplexing,
+        organizing sensor data, and representing the measurements
+        spatially.
+    </p>
+
+    <p>
+        The 2×2 prototype serves as a proof of concept for scaling the
+        system to a larger sensor array.
+    </p>
+
+    </section>
+    
+    <section class="project-section">
+
+    <h2>Testing</h2>
+
+    <p>
+        Testing focused on verifying that the pressure sensors produced
+        measurable and repeatable changes in their output when pressure
+        was applied at different locations.
+    </p>
+
+    <p>
+        The individual sensors were tested before being incorporated
+        into the 2×2 grid. The completed grid was then tested by applying
+        pressure to different sensing locations and observing whether
+        the corresponding sensor measurements changed as expected.
+    </p>
+
+    </section>
+    
+    <section class="project-section">
+
+    <h2>Results</h2>
+
+    <p>
+        The prototype successfully demonstrated the ability to collect
+        pressure measurements from multiple FSR sensors using a
+        microcontroller-based system. Expanding from a single sensor
+        to a 2×2 grid demonstrated that the system could distinguish
+        pressure measurements across multiple locations.
+    </p>
+
+    <p>
+        The collected sensor data provided the foundation for a
+        real-time pressure heat map, allowing the system to move
+        beyond individual sensor readings toward a spatial
+        representation of pressure distribution.  The heat map is currently one of the next things to be added.
+    </p>
+
+    </section>
+
+    
+    <section class="project-section">
+
+    <h2>Challenges</h2>
+
+    <p>
+        One challenge was working with FSR sensors, which do not
+        provide a direct measurement of pressure in standard units.
+        Their output depends on factors such as sensor characteristics,
+        how force is applied, and the surrounding mechanical setup.
+    </p>
+
+    <p>
+        Expanding from a single sensor to multiple sensors also
+        introduced additional complexity in wiring, sensor selection,
+        data organization, and ensuring that measurements could be
+        associated with the correct physical location.
+    </p>
+
+    <p>
+        Another challenge was determining how to translate raw sensor
+        measurements into a visualization that would be intuitive for
+        a user to interpret.
+    </p>
+
+    </section>
+    
+    <section class="project-section">
+
+    <h2>What I Learned</h2>
+
+    <p>
+        This project gave me hands-on experience with embedded systems,
+        sensors, microcontrollers, and data acquisition. I learned how
+        to move from reading a single sensor to integrating multiple
+        sensors into a larger system.
+    </p>
+
+    <p>
+        I also learned that developing a hardware system involves much
+        more than writing code. Sensor behavior, wiring, physical
+        construction, signal interpretation, and software all have to
+        work together for the system to produce useful information.
+    </p>
+
+    <p>
+        Most importantly, the project strengthened my interest in
+        developing engineering systems that combine hardware,
+        software, and healthcare applications.
+    </p>
+
+    </section>
+    
+    <section class="project-section">
+
+    <h2>Future Improvements</h2>
+
+    <p>
+        The next major improvement would be scaling the sensor array
+        beyond the initial 2×2 prototype. A larger array would provide
+        greater spatial resolution and allow pressure distribution
+        across a larger area to be monitored.
+    </p>
+
+    <p>
+        Additional work could also improve sensor calibration and
+        convert raw sensor readings into more meaningful pressure
+        measurements. Improving the mechanical construction of the
+        sensing layers would also help create a more durable and
+        consistent prototype.
+    </p>
+
+    <p>
+        Future versions could incorporate wireless communication,
+        battery optimization, real-time data visualization, and
+        automated alerts when sustained high-pressure regions are
+        detected.
+    </p>
+
+    </section>
+    
+    <section class="project-takeaway">
+
+    <h2>Project Takeaway</h2>
+
+    <p>
+        This project allowed me to develop a complete embedded sensing
+        system from the sensor level through data collection and
+        visualization. Starting with an individual pressure sensor and
+        progressing to a 2×2 sensing grid taught me how hardware,
+        software, and system design must work together to solve a
+        real-world engineering problem.
+    </p>
+
+    <p>
+        The project also demonstrated how relatively simple sensing
+        hardware can serve as the foundation for a larger healthcare
+        technology system.
+    </p>
+
+    </section>
+
+    <div class="project-footer">
+
+    <a href="../index.html#projects">
+        ← Back to Projects
+    </a>
+
+</div>
+    
+    
+    
+    
+
+
+
+
+</body>
